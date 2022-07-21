@@ -42,10 +42,11 @@ function decode(expr) {
     for(let i = 0; i < expr.length; i +=10) {
         divided.push(expr.slice(i, i+10))
     }
-    let filtered = divided.map(el => el.replaceAll('00', ''))
-    let dashed = filtered.map(el => el.replaceAll('11', '-'))
-    let dashedAndDotted = dashed.map(el => el.replaceAll('10', '.'))
-    return dashedAndDotted.map(el => MORSE_TABLE[el]).map(item => typeof item == 'undefined' ? ' ' : item).join('')
+    return divided.map(el => el.replaceAll('00', '')).map(el => el.replaceAll('11', '-')).map(el => el.replaceAll('10', '.')).map(el => MORSE_TABLE[el]).map(item => typeof item == 'undefined' ? ' ' : item).join('')
+    // let filtered = divided.map(el => el.replaceAll('00', ''))
+    // let dashed = filtered.map(el => el.replaceAll('11', '-'))
+    // let dashedAndDotted = dashed.map(el => el.replaceAll('10', '.'))
+    // return dashedAndDotted.map(el => MORSE_TABLE[el]).map(item => typeof item == 'undefined' ? ' ' : item).join('')
 }
 
 
